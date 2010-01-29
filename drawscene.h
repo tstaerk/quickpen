@@ -2,6 +2,7 @@
 #define DRAWSCENE_H
 
 #include <QGraphicsScene>
+#include <QGraphicsView>
 
 class drawscene : public QGraphicsScene
 {
