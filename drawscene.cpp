@@ -6,6 +6,7 @@
 drawscene::drawscene()
 {
     mousereleased=true;
+    setBackgroundBrush(Qt::white);  // the N900 has a black background by default
 }
 
 void drawscene::mouseReleaseEvent(QGraphicsSceneMouseEvent * mouseEvent)
