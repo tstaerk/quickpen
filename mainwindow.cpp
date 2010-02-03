@@ -32,8 +32,7 @@ void MainWindow::changeEvent(QEvent *e)
 
 void MainWindow::on_actionSave_triggered()
 {
-    const char *png="PNG";
-    QImage* image=new QImage(QSize(400,400),QImage::Format_Mono);
+    QImage* image=new QImage(QSize((int)ui->graphicsView->scene()->width(),(int)ui->graphicsView->scene()->height()),QImage::Format_Mono);
     image->fill(1);
     QPainter* painter=new QPainter(image);
     ui->graphicsView->scene()->render(painter);
