@@ -12,6 +12,7 @@ class MainWindow : public QMainWindow {
 public:
     MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    int page;
 
 protected:
     void changeEvent(QEvent *e);
@@ -20,6 +21,7 @@ private:
     Ui::MainWindow *ui;
 
 private slots:
+    void on_commandLinkButton_clicked();
     void on_actionSave_triggered();
 };
 

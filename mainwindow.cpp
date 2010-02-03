@@ -10,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->graphicsView->setScene(new drawscene());
+    page=1;
 }
 
 MainWindow::~MainWindow()
@@ -42,7 +43,15 @@ void MainWindow::on_actionSave_triggered()
     QBuffer buffer(&ba);
     buffer.open(QIODevice::WriteOnly);
     image->save(&buffer, "PNG");
-    QFile* file1=new QFile("/tmp/test5.png");
+    QString filename=QString("/tmp/quickpen-").append(QString::number(page).append(QString(".png")));
+    QFile* file1=new QFile(filename);
     file1->open(QIODevice::WriteOnly);
     image->save(file1, "PNG");
+}
+
+void MainWindow::on_commandLinkButton_clicked()
+{
+    on_actionSave_triggered();
+    page++;
+    ui->graphicsView->scene()->clear();
 }
