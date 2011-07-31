@@ -53,10 +53,18 @@ void MainWindow::on_commandLinkButton_clicked()
     on_actionSave_triggered();
     page++;
     ui->graphicsView->scene()->clear();
+    QImage image=QImage(QSize((int)ui->graphicsView->scene()->width(),(int)ui->graphicsView->scene()->height()),QImage::Format_Mono);
+    image.fill(1);
+    QString filename=QString("/tmp/quickpen-").append(QString::number(page).append(QString(".png")));
+    QFile* file1=new QFile(filename);
+    file1->open(QIODevice::ReadOnly);
+    image.load(file1, "PNG");
+    ui->graphicsView->scene()->addPixmap(QPixmap::fromImage(image));
 }
 
 void MainWindow::on_commandLinkButton_2_clicked()
 {
+    on_actionSave_triggered();
     page--;
     QImage image=QImage(QSize((int)ui->graphicsView->scene()->width(),(int)ui->graphicsView->scene()->height()),QImage::Format_Mono);
     image.fill(1);
