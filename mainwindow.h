@@ -23,6 +23,7 @@ private:
 private slots:
     void on_commandLinkButton_clicked();
     void on_actionSave_triggered();
+    void on_commandLinkButton_2_clicked();
 };
 
 #endif // MAINWINDOW_H
