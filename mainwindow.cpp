@@ -9,7 +9,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->graphicsView->setScene(new drawscene());
+    drawscene* ds=new drawscene();
+    ui->graphicsView->setScene(ds);
     page=1;
 }
 
