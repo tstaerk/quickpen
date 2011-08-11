@@ -15,14 +15,22 @@ void drawscene::mouseReleaseEvent(QGraphicsSceneMouseEvent * mouseEvent)
     mousereleased=true;
 }
 
+void drawscene::init()
+{
+    static bool everdone=false;
+    if (everdone) return;
+    everdone=true;
+    qDebug() << "scenerect=" << sceneRect();
+    setSceneRect(0,0,views()[0]->viewport()->width(),views()[0]->viewport()->height());
+}
+
 void drawscene::mousePressEvent(QGraphicsSceneMouseEvent * mouseEvent)
 {
     QPen pen1=QPen();
     pen1.setWidth(2);
     addLine(mouseEvent->scenePos().x(),mouseEvent->scenePos().y(),mouseEvent->scenePos().x(),mouseEvent->scenePos().y(),pen1);
     qDebug() << "x=" << mouseEvent->scenePos().x();
-    qDebug() << "scenerect=" << sceneRect();
-    setSceneRect(0,0,views()[0]->viewport()->width(),views()[0]->viewport()->height());
+    init();
     oldx=mouseEvent->scenePos().x();
     oldy=mouseEvent->scenePos().y();
     QGraphicsScene::mousePressEvent(mouseEvent);
