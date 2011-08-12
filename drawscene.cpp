@@ -26,11 +26,11 @@ void drawscene::init()
 
 void drawscene::mousePressEvent(QGraphicsSceneMouseEvent * mouseEvent)
 {
+    init();
     QPen pen1=QPen();
     pen1.setWidth(2);
     addLine(mouseEvent->scenePos().x(),mouseEvent->scenePos().y(),mouseEvent->scenePos().x(),mouseEvent->scenePos().y(),pen1);
     qDebug() << "x=" << mouseEvent->scenePos().x();
-    init();
     oldx=mouseEvent->scenePos().x();
     oldy=mouseEvent->scenePos().y();
     QGraphicsScene::mousePressEvent(mouseEvent);
@@ -46,8 +46,11 @@ void drawscene::mouseMoveEvent(QGraphicsSceneMouseEvent * mouseEvent)
         oldx=mouseEvent->scenePos().x();
         oldy=mouseEvent->scenePos().y();
     }
-    addLine(oldx,oldy,mouseEvent->scenePos().x(),mouseEvent->scenePos().y(),pen1);
-    qDebug() << "x=" << mouseEvent->scenePos().x();
+    // the first mouse move event will have the wrong coordinates because the scenerect is not
+    // initialized before the first mousepressevent
+    static bool firsttime=true;
+    if (!firsttime) addLine(oldx,oldy,mouseEvent->scenePos().x(),mouseEvent->scenePos().y(),pen1);
+    firsttime=false;
     oldx=mouseEvent->scenePos().x();
     oldy=mouseEvent->scenePos().y();
     QGraphicsScene::mousePressEvent(mouseEvent);
