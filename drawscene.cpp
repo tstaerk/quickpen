@@ -31,7 +31,6 @@ void drawscene::mousePressEvent(QGraphicsSceneMouseEvent * mouseEvent)
     pen1.setWidth(2);
     pen1.setColor(pencolor);
     addLine(mouseEvent->scenePos().x(),mouseEvent->scenePos().y(),mouseEvent->scenePos().x(),mouseEvent->scenePos().y(),pen1);
-    qDebug() << "x=" << mouseEvent->scenePos().x();
     oldx=mouseEvent->scenePos().x();
     oldy=mouseEvent->scenePos().y();
     QGraphicsScene::mousePressEvent(mouseEvent);
