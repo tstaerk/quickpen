@@ -1,6 +1,8 @@
 #include "mainwindow.h"
+#include "moreform.h"
 #include "ui_mainwindow.h"
 #include "drawscene.h"
+#include <QDebug>
 #include <QFile>
 #include <QBuffer>
 
@@ -29,6 +31,13 @@ void MainWindow::changeEvent(QEvent *e)
     default:
         break;
     }
+}
+
+void MainWindow::setpencolor(QColor color)
+{
+    qDebug()<<"MainWindow::setpencolor";
+    ui->graphicsView->scene()->setPalette(color);
+    ((drawscene*)ui->graphicsView->scene())->setpencolor(color);
 }
 
 void MainWindow::on_actionSave_triggered()
@@ -74,4 +83,10 @@ void MainWindow::on_prevbutton_clicked()
     file1->open(QIODevice::ReadOnly);
     image.load(file1, "PNG");
     ui->graphicsView->scene()->addPixmap(QPixmap::fromImage(image));
+}
+
+void MainWindow::on_morebutton_clicked()
+{
+    MoreForm* mf=new MoreForm(this);
+    mf->show();
 }

@@ -6,6 +6,7 @@
 drawscene::drawscene()
 {
     mousereleased=true;
+    pencolor=QColor("black");
     setBackgroundBrush(Qt::white);  // the N900 has a black background by default
 }
 
@@ -29,6 +30,7 @@ void drawscene::mousePressEvent(QGraphicsSceneMouseEvent * mouseEvent)
     init();
     QPen pen1=QPen();
     pen1.setWidth(2);
+    pen1.setColor(pencolor);
     addLine(mouseEvent->scenePos().x(),mouseEvent->scenePos().y(),mouseEvent->scenePos().x(),mouseEvent->scenePos().y(),pen1);
     qDebug() << "x=" << mouseEvent->scenePos().x();
     oldx=mouseEvent->scenePos().x();
@@ -41,6 +43,7 @@ void drawscene::mouseMoveEvent(QGraphicsSceneMouseEvent * mouseEvent)
 {
     QPen pen1=QPen();
     pen1.setWidth(3);
+    pen1.setColor(pencolor);
     if (mousereleased)
     {
         oldx=mouseEvent->scenePos().x();

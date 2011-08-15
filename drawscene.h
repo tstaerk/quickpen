@@ -12,8 +12,11 @@ public:
     void mousePressEvent ( QGraphicsSceneMouseEvent * mouseEvent );
     void mouseMoveEvent ( QGraphicsSceneMouseEvent * mouseEvent );
     void mouseReleaseEvent ( QGraphicsSceneMouseEvent * mouseEvent );
+    void setpencolor(QColor color){pencolor=color;};
     int oldx,oldy;
     bool mousereleased;
+private:
+    QColor pencolor;
 };
 
 #endif // DRAWSCENE_H

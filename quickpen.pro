@@ -6,7 +6,10 @@ TARGET = quickpen
 TEMPLATE = app
 SOURCES += main.cpp \
     mainwindow.cpp \
-    drawscene.cpp
+    drawscene.cpp \
+    moreform.cpp
 HEADERS += mainwindow.h \
-    drawscene.h
-FORMS += mainwindow.ui
+    drawscene.h \
+    moreform.h
+FORMS += mainwindow.ui \
+    moreform.ui
