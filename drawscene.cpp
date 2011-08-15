@@ -21,7 +21,6 @@ void drawscene::init()
     static bool everdone=false;
     if (everdone) return;
     everdone=true;
-    qDebug() << "scenerect=" << sceneRect();
     setSceneRect(0,0,views()[0]->viewport()->width(),views()[0]->viewport()->height());
 }
 

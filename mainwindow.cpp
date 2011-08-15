@@ -35,8 +35,6 @@ void MainWindow::changeEvent(QEvent *e)
 
 void MainWindow::setpencolor(QColor color)
 {
-    qDebug()<<"MainWindow::setpencolor";
-    ui->graphicsView->scene()->setPalette(color);
     ((drawscene*)ui->graphicsView->scene())->setpencolor(color);
 }
 
