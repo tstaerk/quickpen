@@ -42,7 +42,7 @@ void MainWindow::setpencolor(QColor color)
 
 void MainWindow::on_actionSave_triggered()
 {
-    QImage* image=new QImage(QSize((int)ui->graphicsView->scene()->width(),(int)ui->graphicsView->scene()->height()),QImage::Format_Mono);
+    QImage* image=new QImage(QSize((int)ui->graphicsView->scene()->width(),(int)ui->graphicsView->scene()->height()),QImage::Format_RGB32);
     image->fill(1);
     QPainter* painter=new QPainter(image);
     ui->graphicsView->scene()->render(painter);
@@ -63,7 +63,7 @@ void MainWindow::on_nextbutton_clicked()
     on_actionSave_triggered();
     page++;
     ui->graphicsView->scene()->clear();
-    QImage image=QImage(QSize((int)ui->graphicsView->scene()->width(),(int)ui->graphicsView->scene()->height()),QImage::Format_Mono);
+    QImage image=QImage(QSize((int)ui->graphicsView->scene()->width(),(int)ui->graphicsView->scene()->height()),QImage::Format_RGB32);
     image.fill(1);
     QString filename=QString("/tmp/quickpen-").append(QString::number(page).append(QString(".png")));
     QFile* file1=new QFile(filename);
@@ -76,7 +76,7 @@ void MainWindow::on_prevbutton_clicked()
 {
     on_actionSave_triggered();
     page--;
-    QImage image=QImage(QSize((int)ui->graphicsView->scene()->width(),(int)ui->graphicsView->scene()->height()),QImage::Format_Mono);
+    QImage image=QImage(QSize((int)ui->graphicsView->scene()->width(),(int)ui->graphicsView->scene()->height()),QImage::Format_RGB32);
     image.fill(1);
     QString filename=QString("/tmp/quickpen-").append(QString::number(page).append(QString(".png")));
     QFile* file1=new QFile(filename);

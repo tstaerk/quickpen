@@ -18,6 +18,8 @@ public:
 private slots:
     void on_red_clicked();
 
+    void on_black_clicked();
+
 private:
     Ui::MoreForm *ui;
 };

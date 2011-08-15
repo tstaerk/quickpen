@@ -21,3 +21,10 @@ void MoreForm::on_red_clicked()
     ((MainWindow*) this->parent())->setpencolor(QColor("red"));
     this->deleteLater();
 }
+
+void MoreForm::on_black_clicked()
+{
+    ((MainWindow*) this->parent())->setpencolor(QColor("black"));
+    this->deleteLater();
+
+}
