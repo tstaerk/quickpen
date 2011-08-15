@@ -17,7 +17,6 @@ MoreForm::~MoreForm()
 
 void MoreForm::on_red_clicked()
 {
-    qDebug() << "on_red_clicked";
     parent->setpencolor(QColor("red"));
     this->deleteLater();
 }
@@ -26,5 +25,46 @@ void MoreForm::on_black_clicked()
 {
     parent->setpencolor(QColor("black"));
     this->deleteLater();
+}
 
+void MoreForm::on_yellow_clicked()
+{
+    parent->setpencolor(QColor("yellow"));
+    this->deleteLater();
+}
+
+void MoreForm::on_gray_clicked()
+{
+    parent->setpencolor(QColor("gray"));
+    this->deleteLater();
+}
+
+void MoreForm::on_green_clicked()
+{
+    parent->setpencolor(QColor("green"));
+    this->deleteLater();
+}
+
+void MoreForm::on_blue_clicked()
+{
+    parent->setpencolor(QColor("blue"));
+    this->deleteLater();
+}
+
+void MoreForm::on_white_clicked()
+{
+    parent->setpencolor(QColor("white"));
+    this->deleteLater();
+}
+
+void MoreForm::on_purple_clicked()
+{
+    parent->setpencolor(QColor("purple"));
+    this->deleteLater();
+}
+
+void MoreForm::on_turquoise_clicked()
+{
+    parent->setpencolor(QColor("turquoise"));
+    this->deleteLater();
 }
