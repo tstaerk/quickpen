@@ -88,5 +88,5 @@ void MainWindow::on_prevbutton_clicked()
 void MainWindow::on_morebutton_clicked()
 {
     MoreForm* mf=new MoreForm(this);
-    mf->show();
+    ui->gridLayout->addWidget(mf);
 }

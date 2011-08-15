@@ -1,10 +1,12 @@
 #ifndef MOREFORM_H
 #define MOREFORM_H
 
+#include "mainwindow.h"
 #include <QWidget>
 
 namespace Ui {
     class MoreForm;
+    class MainWindow;
 }
 
 class MoreForm : public QWidget
@@ -12,7 +14,7 @@ class MoreForm : public QWidget
     Q_OBJECT
 
 public:
-    explicit MoreForm(QWidget *parent = 0);
+    explicit MoreForm(MainWindow *parent = 0);
     ~MoreForm();
 
 private slots:
@@ -22,6 +24,7 @@ private slots:
 
 private:
     Ui::MoreForm *ui;
+    MainWindow* parent;
 };
 
 #endif // MOREFORM_H

@@ -3,11 +3,11 @@
 #include "ui_moreform.h"
 #include <QDebug>
 
-MoreForm::MoreForm(QWidget *parent) :
-    QWidget(parent),
+MoreForm::MoreForm(MainWindow *parent1) :
     ui(new Ui::MoreForm)
 {
     ui->setupUi(this);
+    parent=parent1;
 }
 
 MoreForm::~MoreForm()
@@ -18,13 +18,13 @@ MoreForm::~MoreForm()
 void MoreForm::on_red_clicked()
 {
     qDebug() << "on_red_clicked";
-    ((MainWindow*) this->parent())->setpencolor(QColor("red"));
+    parent->setpencolor(QColor("red"));
     this->deleteLater();
 }
 
 void MoreForm::on_black_clicked()
 {
-    ((MainWindow*) this->parent())->setpencolor(QColor("black"));
+    parent->setpencolor(QColor("black"));
     this->deleteLater();
 
 }
