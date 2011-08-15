@@ -49,7 +49,7 @@ void MainWindow::on_actionSave_triggered()
     image->save(file1, "PNG");
 }
 
-void MainWindow::on_commandLinkButton_clicked()
+void MainWindow::on_nextbutton_clicked()
 {
     on_actionSave_triggered();
     page++;
@@ -63,7 +63,7 @@ void MainWindow::on_commandLinkButton_clicked()
     ui->graphicsView->scene()->addPixmap(QPixmap::fromImage(image));
 }
 
-void MainWindow::on_commandLinkButton_2_clicked()
+void MainWindow::on_prevbutton_clicked()
 {
     on_actionSave_triggered();
     page--;

@@ -21,9 +21,9 @@ private:
     Ui::MainWindow *ui;
 
 private slots:
-    void on_commandLinkButton_clicked();
+    void on_nextbutton_clicked();
     void on_actionSave_triggered();
-    void on_commandLinkButton_2_clicked();
+    void on_prevbutton_clicked();
 };
 
 #endif // MAINWINDOW_H

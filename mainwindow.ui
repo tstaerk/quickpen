@@ -16,14 +16,14 @@
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
-     <widget class="QCommandLinkButton" name="commandLinkButton_2">
+     <widget class="QCommandLinkButton" name="prevbutton">
       <property name="text">
        <string>Previous page</string>
       </property>
      </widget>
     </item>
     <item row="0" column="2">
-     <widget class="QCommandLinkButton" name="commandLinkButton">
+     <widget class="QCommandLinkButton" name="nextbutton">
       <property name="text">
        <string>Next page</string>
       </property>
@@ -33,9 +33,9 @@
      <widget class="QGraphicsView" name="graphicsView"/>
     </item>
     <item row="0" column="1">
-     <widget class="QCommandLinkButton" name="commandLinkButton_3">
+     <widget class="QCommandLinkButton" name="morebutton">
       <property name="text">
-       <string>Info</string>
+       <string>More</string>
       </property>
      </widget>
     </item>
