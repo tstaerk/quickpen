@@ -13,3 +13,7 @@ HEADERS += mainwindow.h \
     moreform.h
 FORMS += mainwindow.ui \
     moreform.ui
+
+target.path = /usr/local/bin
+INSTALLS += target
+
