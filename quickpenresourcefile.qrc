@@ -2,5 +2,7 @@
     <qresource prefix="/new/prefix1">
         <file alias="arrowleft">arrowleft.png</file>
         <file>quickpen-icon.png</file>
+        <file>rarr.png</file>
+        <file>larr.png</file>
     </qresource>
 </RCC>
