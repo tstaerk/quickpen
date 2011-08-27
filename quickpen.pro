@@ -17,3 +17,5 @@ FORMS += mainwindow.ui \
 target.path = /usr/local/bin
 INSTALLS += target
 
+RESOURCES += \
+    quickpenresourcefile.qrc
