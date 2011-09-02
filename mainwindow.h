@@ -29,6 +29,7 @@ private:
 private slots:
     void on_nextbutton_clicked();
     void on_actionSave_triggered();
+    void loadpage(int page);
     void on_prevbutton_clicked();
     void on_morebutton_clicked();
 };

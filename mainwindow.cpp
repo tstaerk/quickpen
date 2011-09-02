@@ -14,8 +14,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     drawscene* ds=new drawscene();
     ui->graphicsView->setScene(ds);
-    page=1;
     mf=0;
+    loadpage(page=1);
 }
 
 MainWindow::~MainWindow()
@@ -26,12 +26,13 @@ MainWindow::~MainWindow()
 void MainWindow::changeEvent(QEvent *e)
 {
     QMainWindow::changeEvent(e);
-    switch (e->type()) {
-    case QEvent::LanguageChange:
-        ui->retranslateUi(this);
-        break;
-    default:
-        break;
+    switch (e->type())
+    {
+        case QEvent::LanguageChange:
+            ui->retranslateUi(this);
+            break;
+        default:
+            break;
     }
 }
 
@@ -49,7 +50,6 @@ void MainWindow::deletemoreform()
 void MainWindow::on_actionSave_triggered()
 {
     QImage* image=new QImage(QSize((int)ui->graphicsView->scene()->width(),(int)ui->graphicsView->scene()->height()),QImage::Format_RGB32);
-    image->fill(1);
     QPainter* painter=new QPainter(image);
     ui->graphicsView->scene()->render(painter);
 
@@ -63,31 +63,29 @@ void MainWindow::on_actionSave_triggered()
     image->save(file1, "PNG");
 }
 
+void MainWindow::loadpage(int page)
+{
+    ui->graphicsView->scene()->clear();
+    QString filename=QString("/tmp/quickpen-").append(QString::number(page).append(QString(".png")));
+    QFile* file1=new QFile(filename);
+    if (file1->open(QIODevice::ReadOnly))
+    {
+        QImage image=QImage(QSize((int)ui->graphicsView->scene()->width(),(int)ui->graphicsView->scene()->height()),QImage::Format_RGB32);
+        image.load(file1, "PNG");
+        ui->graphicsView->scene()->addPixmap(QPixmap::fromImage(image));
+    }
+}
+
 void MainWindow::on_nextbutton_clicked()
 {
     on_actionSave_triggered();
-    page++;
-    ui->graphicsView->scene()->clear();
-    QImage image=QImage(QSize((int)ui->graphicsView->scene()->width(),(int)ui->graphicsView->scene()->height()),QImage::Format_RGB32);
-    image.fill(1);
-    QString filename=QString("/tmp/quickpen-").append(QString::number(page).append(QString(".png")));
-    QFile* file1=new QFile(filename);
-    file1->open(QIODevice::ReadOnly);
-    image.load(file1, "PNG");
-    ui->graphicsView->scene()->addPixmap(QPixmap::fromImage(image));
+    loadpage(++page);
 }
 
 void MainWindow::on_prevbutton_clicked()
 {
     on_actionSave_triggered();
-    page--;
-    QImage image=QImage(QSize((int)ui->graphicsView->scene()->width(),(int)ui->graphicsView->scene()->height()),QImage::Format_RGB32);
-    image.fill(1);
-    QString filename=QString("/tmp/quickpen-").append(QString::number(page).append(QString(".png")));
-    QFile* file1=new QFile(filename);
-    file1->open(QIODevice::ReadOnly);
-    image.load(file1, "PNG");
-    ui->graphicsView->scene()->addPixmap(QPixmap::fromImage(image));
+    loadpage(--page);
 }
 
 void MainWindow::on_morebutton_clicked()
