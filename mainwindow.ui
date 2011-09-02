@@ -26,7 +26,7 @@
       </property>
       <property name="icon">
        <iconset resource="quickpenresourcefile.qrc">
-        <normaloff>:/new/prefix1/arrowleft</normaloff>:/new/prefix1/arrowleft</iconset>
+        <normaloff>:/new/prefix1/larr.png</normaloff>:/new/prefix1/larr.png</iconset>
       </property>
      </widget>
     </item>
@@ -34,6 +34,10 @@
      <widget class="QCommandLinkButton" name="nextbutton">
       <property name="text">
        <string>Next page</string>
+      </property>
+      <property name="icon">
+       <iconset resource="quickpenresourcefile.qrc">
+        <normaloff>:/new/prefix1/rarr.png</normaloff>:/new/prefix1/rarr.png</iconset>
       </property>
      </widget>
     </item>
@@ -44,6 +48,10 @@
      <widget class="QCommandLinkButton" name="morebutton">
       <property name="text">
        <string>More</string>
+      </property>
+      <property name="icon">
+       <iconset resource="quickpenresourcefile.qrc">
+        <normaloff>:/new/prefix1/uarr.png</normaloff>:/new/prefix1/uarr.png</iconset>
       </property>
      </widget>
     </item>

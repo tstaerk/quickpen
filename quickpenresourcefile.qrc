@@ -4,5 +4,6 @@
         <file>quickpen-icon.png</file>
         <file>rarr.png</file>
         <file>larr.png</file>
+        <file>uarr.png</file>
     </qresource>
 </RCC>
