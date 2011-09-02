@@ -7,6 +7,8 @@ namespace Ui {
     class MainWindow;
 }
 
+class MoreForm;
+
 class MainWindow : public QMainWindow {
     Q_OBJECT
 public:
@@ -14,13 +16,13 @@ public:
     ~MainWindow();
     int page;
     void setpencolor(QColor color);
-    void setbuttonsactive();
 
 protected:
     void changeEvent(QEvent *e);
 
 private:
     Ui::MainWindow *ui;
+    MoreForm* mf;
     QColor pencolor;
 
 private slots:

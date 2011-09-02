@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "moreform.h"
 #include "ui_mainwindow.h"
+#include "ui_moreform.h"
 #include "drawscene.h"
 #include <QDebug>
 #include <QFile>
@@ -36,11 +37,6 @@ void MainWindow::changeEvent(QEvent *e)
 void MainWindow::setpencolor(QColor color)
 {
     ((drawscene*)ui->graphicsView->scene())->setpencolor(color);
-}
-
-void MainWindow::setbuttonsactive()
-{
-    ui->morebutton->setEnabled(true);
 }
 
 void MainWindow::on_actionSave_triggered()
@@ -90,7 +86,10 @@ void MainWindow::on_prevbutton_clicked()
 
 void MainWindow::on_morebutton_clicked()
 {
-    ui->morebutton->setDisabled(true);
-    MoreForm* mf=new MoreForm(this);
+    static bool moreformshown=false;
+    if (moreformshown)
+    {
+    }
+    mf=new MoreForm(this);
     ui->gridLayout->addWidget(mf,3,1);
 }

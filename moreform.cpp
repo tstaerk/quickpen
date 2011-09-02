@@ -12,7 +12,6 @@ MoreForm::MoreForm(MainWindow *parent1) :
 
 MoreForm::~MoreForm()
 {
-    parent->setbuttonsactive();
     delete ui;
 }
 
