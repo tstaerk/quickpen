@@ -15,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent) :
     drawscene* ds=new drawscene();
     ui->graphicsView->setScene(ds);
     page=1;
+    mf=0;
 }
 
 MainWindow::~MainWindow()
@@ -39,13 +40,18 @@ void MainWindow::setpencolor(QColor color)
     ((drawscene*)ui->graphicsView->scene())->setpencolor(color);
 }
 
+void MainWindow::deletemoreform()
+{
+    mf->deleteLater();
+    mf=0;
+}
+
 void MainWindow::on_actionSave_triggered()
 {
     QImage* image=new QImage(QSize((int)ui->graphicsView->scene()->width(),(int)ui->graphicsView->scene()->height()),QImage::Format_RGB32);
     image->fill(1);
     QPainter* painter=new QPainter(image);
     ui->graphicsView->scene()->render(painter);
-
 
     QByteArray ba;
     QBuffer buffer(&ba);
@@ -86,10 +92,14 @@ void MainWindow::on_prevbutton_clicked()
 
 void MainWindow::on_morebutton_clicked()
 {
-    static bool moreformshown=false;
-    if (moreformshown)
+    if (mf)
     {
+        mf->deleteLater();
+        mf=0;
     }
-    mf=new MoreForm(this);
-    ui->gridLayout->addWidget(mf,3,1);
+    else
+    {
+        mf=new MoreForm(this);
+        ui->gridLayout->addWidget(mf,3,1);
+    }
 }

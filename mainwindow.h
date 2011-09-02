@@ -16,6 +16,7 @@ public:
     ~MainWindow();
     int page;
     void setpencolor(QColor color);
+    void deletemoreform();
 
 protected:
     void changeEvent(QEvent *e);
