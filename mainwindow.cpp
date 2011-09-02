@@ -20,6 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
+    saveactualpage();
     delete ui;
 }
 
@@ -47,7 +48,7 @@ void MainWindow::deletemoreform()
     mf=0;
 }
 
-void MainWindow::on_actionSave_triggered()
+void MainWindow::saveactualpage()
 {
     QImage* image=new QImage(QSize((int)ui->graphicsView->scene()->width(),(int)ui->graphicsView->scene()->height()),QImage::Format_RGB32);
     QPainter* painter=new QPainter(image);
@@ -78,13 +79,13 @@ void MainWindow::loadpage(int page)
 
 void MainWindow::on_nextbutton_clicked()
 {
-    on_actionSave_triggered();
+    saveactualpage();
     loadpage(++page);
 }
 
 void MainWindow::on_prevbutton_clicked()
 {
-    on_actionSave_triggered();
+    saveactualpage();
     loadpage(--page);
 }
 
