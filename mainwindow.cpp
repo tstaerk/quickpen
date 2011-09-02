@@ -38,6 +38,11 @@ void MainWindow::setpencolor(QColor color)
     ((drawscene*)ui->graphicsView->scene())->setpencolor(color);
 }
 
+void MainWindow::setbuttonsactive()
+{
+    ui->morebutton->setEnabled(true);
+}
+
 void MainWindow::on_actionSave_triggered()
 {
     QImage* image=new QImage(QSize((int)ui->graphicsView->scene()->width(),(int)ui->graphicsView->scene()->height()),QImage::Format_RGB32);
@@ -85,6 +90,7 @@ void MainWindow::on_prevbutton_clicked()
 
 void MainWindow::on_morebutton_clicked()
 {
+    ui->morebutton->setDisabled(true);
     MoreForm* mf=new MoreForm(this);
     ui->gridLayout->addWidget(mf,3,1);
 }

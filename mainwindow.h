@@ -14,6 +14,7 @@ public:
     ~MainWindow();
     int page;
     void setpencolor(QColor color);
+    void setbuttonsactive();
 
 protected:
     void changeEvent(QEvent *e);
