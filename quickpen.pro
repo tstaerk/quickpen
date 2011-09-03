@@ -21,3 +21,5 @@ RESOURCES += \
     quickpenresourcefile.qrc
 
 TRANSLATIONS = quickpen_de.ts
+    CODECFORTR = UTF-8
+    CODECFORSRC = UTF-8

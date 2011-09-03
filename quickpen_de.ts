@@ -16,7 +16,7 @@
     <message>
         <location filename="mainwindow.ui" line="36"/>
         <source>Next page</source>
-        <translation>Naechste Seite</translation>
+        <translation>Nächste Seite</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="50"/>
