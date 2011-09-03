@@ -19,3 +19,5 @@ INSTALLS += target
 
 RESOURCES += \
     quickpenresourcefile.qrc
+
+TRANSLATIONS = quickpen_de.ts
