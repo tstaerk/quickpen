@@ -81,3 +81,8 @@ void MoreForm::on_clearbutton_clicked()
     parent->clearactualpage();
     parent->deletemoreform();
 }
+
+void MoreForm::on_exitbutton_clicked()
+{
+    parent->deleteLater();
+}

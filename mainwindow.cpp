@@ -111,4 +111,3 @@ void MainWindow::on_morebutton_clicked()
         ui->gridLayout->addWidget(mf,1,0,1,3);
     }
 }
-

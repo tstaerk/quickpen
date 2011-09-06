@@ -30,6 +30,7 @@ private slots:
     void on_turquoise_clicked();
     void on_savebutton_clicked();
     void on_clearbutton_clicked();
+    void on_exitbutton_clicked();
 
 private:
     Ui::MoreForm *ui;
