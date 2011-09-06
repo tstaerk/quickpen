@@ -51,6 +51,11 @@ void MainWindow::deletemoreform()
     ui->morebutton->setText(tr("More"));
 }
 
+void MainWindow::clearactualpage()
+{
+    ui->graphicsView->scene()->clear();
+}
+
 void MainWindow::saveactualpage(QString filename)
 {
     QImage* image=new QImage(QSize((int)ui->graphicsView->scene()->width(),(int)ui->graphicsView->scene()->height()),QImage::Format_RGB32);
@@ -107,10 +112,3 @@ void MainWindow::on_morebutton_clicked()
     }
 }
 
-
-void MainWindow::on_pushButton_2_clicked()
-{
-    qDebug() << "entering";
-    QString filename=QFileDialog::getSaveFileName(0);
-
-}

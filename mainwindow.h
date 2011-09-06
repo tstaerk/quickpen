@@ -3,13 +3,15 @@
 
 #include <QMainWindow>
 
-namespace Ui {
+namespace Ui
+{
     class MainWindow;
 }
 
 class MoreForm;
 
-class MainWindow : public QMainWindow {
+class MainWindow : public QMainWindow
+{
     Q_OBJECT
 public:
     MainWindow(QWidget *parent = 0);
@@ -17,6 +19,7 @@ public:
     int page;
     void setpencolor(QColor color);
     void deletemoreform();
+    void clearactualpage();
     void saveactualpage(QString filename=QString());
 
 protected:
@@ -28,12 +31,10 @@ private:
     QColor pencolor;
 
 private slots:
-
     void loadpage(int page);
     void on_nextbutton_clicked();
     void on_prevbutton_clicked();
     void on_morebutton_clicked();
-    void on_pushButton_2_clicked();
 };
 
 #endif // MAINWINDOW_H

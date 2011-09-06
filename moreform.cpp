@@ -75,3 +75,9 @@ void MoreForm::on_savebutton_clicked()
     //TODO: What if the user cancels the dialog?
     parent->saveactualpage(QFileDialog::getSaveFileName(0));
 }
+
+void MoreForm::on_clearbutton_clicked()
+{
+    parent->clearactualpage();
+    parent->deletemoreform();
+}
