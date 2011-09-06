@@ -35,6 +35,8 @@ private slots:
 
     void on_turquoise_clicked();
 
+    void on_savebutton_clicked();
+
 private:
     Ui::MoreForm *ui;
     MainWindow* parent;

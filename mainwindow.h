@@ -17,6 +17,7 @@ public:
     int page;
     void setpencolor(QColor color);
     void deletemoreform();
+    void saveactualpage(QString filename=QString());
 
 protected:
     void changeEvent(QEvent *e);
@@ -27,11 +28,12 @@ private:
     QColor pencolor;
 
 private slots:
-    void saveactualpage();
+
     void loadpage(int page);
     void on_nextbutton_clicked();
     void on_prevbutton_clicked();
     void on_morebutton_clicked();
+    void on_pushButton_2_clicked();
 };
 
 #endif // MAINWINDOW_H

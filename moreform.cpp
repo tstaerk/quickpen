@@ -2,6 +2,7 @@
 #include "moreform.h"
 #include "ui_moreform.h"
 #include <QDebug>
+#include <QFileDialog>
 
 MoreForm::MoreForm(MainWindow *parent1) :
     ui(new Ui::MoreForm)
@@ -67,4 +68,10 @@ void MoreForm::on_turquoise_clicked()
 {
     parent->setpencolor(QColor("turquoise"));
     parent->deletemoreform();
+}
+
+void MoreForm::on_savebutton_clicked()
+{
+    //TODO: What if the user cancels the dialog?
+    parent->saveactualpage(QFileDialog::getSaveFileName(0));
 }

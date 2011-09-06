@@ -5,6 +5,7 @@
 #include "drawscene.h"
 #include <QDebug>
 #include <QFile>
+#include <QFileDialog>
 #include <QBuffer>
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -45,10 +46,12 @@ void MainWindow::setpencolor(QColor color)
 void MainWindow::deletemoreform()
 {
     mf->deleteLater();
+    ui->graphicsView->show();
     mf=0;
+    ui->morebutton->setText(tr("More"));
 }
 
-void MainWindow::saveactualpage()
+void MainWindow::saveactualpage(QString filename)
 {
     QImage* image=new QImage(QSize((int)ui->graphicsView->scene()->width(),(int)ui->graphicsView->scene()->height()),QImage::Format_RGB32);
     QPainter* painter=new QPainter(image);
@@ -58,7 +61,7 @@ void MainWindow::saveactualpage()
     QBuffer buffer(&ba);
     buffer.open(QIODevice::WriteOnly);
     image->save(&buffer, "PNG");
-    QString filename=QString("/tmp/quickpen-").append(QString::number(page).append(QString(".png")));
+    if (filename==QString()) filename=QString("/tmp/quickpen-").append(QString::number(page).append(QString(".png")));
     QFile* file1=new QFile(filename);
     file1->open(QIODevice::WriteOnly);
     image->save(file1, "PNG");
@@ -93,12 +96,21 @@ void MainWindow::on_morebutton_clicked()
 {
     if (mf)
     {
-        mf->deleteLater();
-        mf=0;
+        deletemoreform();
     }
     else
     {
         mf=new MoreForm(this);
-        ui->gridLayout->addWidget(mf,3,1);
+        ui->morebutton->setText(tr("Less"));
+        ui->graphicsView->hide();
+        ui->gridLayout->addWidget(mf,1,0,1,3);
     }
+}
+
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    qDebug() << "entering";
+    QString filename=QFileDialog::getSaveFileName(0);
+
 }
