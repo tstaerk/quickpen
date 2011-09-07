@@ -73,7 +73,7 @@ void MoreForm::on_turquoise_clicked()
 void MoreForm::on_savebutton_clicked()
 {
     //TODO: What if the user cancels the dialog?
-    parent->saveactualpage(QFileDialog::getSaveFileName(0));
+    parent->saveactualpage(QFileDialog::getSaveFileName(this));
 }
 
 void MoreForm::on_clearbutton_clicked()
