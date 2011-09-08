@@ -14,8 +14,11 @@ HEADERS += mainwindow.h \
 FORMS += mainwindow.ui \
     moreform.ui
 
-target.path = /usr/local/bin
+target.path = /opt/quickpen/bin
 INSTALLS += target
+
+desktop.path = /usr/share/applications
+desktop.files += quickpen.desktop
 
 RESOURCES += \
     quickpenresourcefile.qrc

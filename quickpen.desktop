@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=QuickPen
+Comment=QuickPen Touchscreen Application
+Type=Application
+Icon=quickpen-icon
+Terminal=false
+Exec=quickpen
+Categories=Utility
