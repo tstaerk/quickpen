@@ -15,10 +15,11 @@ FORMS += mainwindow.ui \
     moreform.ui
 
 target.path = /opt/quickpen/bin
-INSTALLS += target
 
 desktop.path = /usr/share/applications
 desktop.files += quickpen.desktop
+
+INSTALLS += target desktop
 
 RESOURCES += \
     quickpenresourcefile.qrc
