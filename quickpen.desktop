@@ -1,9 +1,10 @@
 [Desktop Entry]
 Version=1.0
 Name=QuickPen
+GenericName=QuickPen
 Comment=QuickPen Touchscreen Application
 Type=Application
-Icon=quickpen-icon
+Icon=/usr/share/icons/quickpen-icon.png
 Terminal=false
-Exec=quickpen
-Categories=Utility
+Exec=/opt/de.staerk.quickpen/quickpen
+Categories=Graphics;
